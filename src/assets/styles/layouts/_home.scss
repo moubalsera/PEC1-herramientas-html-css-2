@@ -1,60 +1,586 @@
 @use "../variables";
+@use "../mixins";
+@use "../functions";
 
-* {
-  box-sizing: border-box;
+// Navegacion
+
+.site-header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: variables.$z-nav;
+  background-color: rgba(variables.$color-volcanic, 0.95);
+  backdrop-filter: blur(8px);
+  box-shadow: variables.$shadow-md;
 }
 
-body {
+.site-nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: variables.$spacing-md variables.$spacing-lg;
+
+  &__brand {
+    display: flex;
+    gap: variables.$spacing-sm;
+    align-items: center;
+    color: variables.$color-white;
+    font-family: variables.$font-family-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+
+    .fa-volcano {
+      color: variables.$color-lava;
+    }
+  }
+
+  &__toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: variables.$spacing-sm;
+    border: 2px solid variables.$color-sea-light;
+    border-radius: variables.$radius-sm;
+    background: transparent;
+    color: variables.$color-white;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color variables.$transition-base;
+
+    &:hover,
+    &:focus {
+      background-color: variables.$color-sea-dark;
+      outline: none;
+    }
+
+    @include mixins.respond-to(md) {
+      display: none;
+    }
+  }
+
+  &__menu {
+    display: none;
+    flex-basis: 100%;
+    flex-direction: column;
+    gap: 0;
+    margin-top: variables.$spacing-sm;
+
+    &.is-open {
+      display: flex;
+    }
+
+    @include mixins.respond-to(md) {
+      display: flex;
+      flex-basis: auto;
+      flex-direction: row;
+      gap: variables.$spacing-sm;
+      margin-top: 0;
+    }
+  }
+
+  &__link {
+    display: block;
+    padding: variables.$spacing-sm variables.$spacing-md;
+    border-radius: variables.$radius-sm;
+    color: variables.$color-sea-light;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition:
+      background-color variables.$transition-base,
+      color variables.$transition-base;
+
+    &:hover,
+    &:focus {
+      background-color: rgba(variables.$color-white, 0.1);
+      color: variables.$color-white;
+      text-decoration: none;
+    }
+
+    &--active {
+      background-color: rgba(variables.$color-sea-light, 0.2);
+      color: variables.$color-white;
+      font-weight: 700;
+    }
+  }
+}
+
+// Hero
+
+.hero {
+  position: relative;
   display: flex;
   flex-direction: column;
-  height: 100vh;
-  margin: 0;
-  padding: 2rem;
-  font-family: variables.$font-family-sans-serif;
-  font-size: 16px;
-  line-height: 24px;
-  background-color: variables.$uoc-bg;
-  color: variables.$uoc-corporate;
-}
-
-.uoc-container {
-  max-width: 800px;
-  margin: auto;
-  padding: 2rem;
-  border-radius: 2rem;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding-top: 80px;
+  background-image: url("../images/stromboli-volcano-hero.jpg");
+  background-position: center;
+  background-size: cover;
   text-align: center;
-  background-color: #fff;
-  box-shadow:
-    0 4px 6px -1px rgba(0, 0, 0, 0.1),
-    0 2px 4px -1px rgba(0, 0, 0, 0.06);
-}
 
-.uoc-logo {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 1.5rem;
-  max-width: 200px;
-  height: auto;
+  &__overlay {
+    position: absolute;
+    inset: 0;
+    z-index: variables.$z-overlay;
+    background: linear-gradient(
+      to bottom,
+      rgba(variables.$color-volcanic, 0.7) 0%,
+      rgba(variables.$color-sea-dark, 0.6) 100%
+    );
+  }
 
-  @media (min-width: variables.$mqMinWidth) {
-    max-width: none;
+  &__content {
+    position: relative;
+    z-index: variables.$z-overlay + 1;
+    padding: variables.$spacing-2xl;
+    color: variables.$color-white;
+  }
+
+  &__eyebrow {
+    margin-bottom: variables.$spacing-md;
+    color: variables.$color-sea-light;
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  &__title {
+    margin-bottom: variables.$spacing-lg;
+    font-family: variables.$font-family-serif;
+    font-size: functions.rem(48);
+    font-weight: 700;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+
+    @include mixins.respond-to(md) {
+      font-size: functions.rem(72);
+    }
+
+    @include mixins.respond-to(lg) {
+      font-size: functions.rem(96);
+    }
+  }
+
+  &__subtitle {
+    max-width: 600px;
+    margin: 0 auto variables.$spacing-2xl;
+    font-size: 1.125rem;
+    line-height: 1.7;
+    opacity: 0.9;
+
+    @include mixins.respond-to(md) {
+      font-size: 1.375rem;
+    }
+  }
+
+  &__scroll-hint {
+    position: absolute;
+    bottom: variables.$spacing-xl;
+    left: 50%;
+    z-index: variables.$z-overlay + 1;
+    animation: bounce 2s infinite;
+    color: variables.$color-sea-light;
+    font-size: 1.5rem;
+    transform: translateX(-50%);
   }
 }
 
-.uoc-title {
-  font-family: variables.$font-family-serif;
-  font-size: 24px;
-  font-weight: 700;
-  color: variables.$uoc-corporate;
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateX(-50%) translateY(0);
+  }
 
-  @media (min-width: variables.$mqMinWidth) {
-    font-size: 36px;
+  50% {
+    transform: translateX(-50%) translateY(8px);
   }
 }
 
-.uoc-footer {
-  margin-top: 1.5rem;
-  font-size: 0.75rem;
+// Introduccion
+
+.intro {
+  &__grid {
+    display: grid;
+    gap: variables.$spacing-2xl;
+    grid-template-columns: 1fr;
+
+    @include mixins.respond-to(lg) {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  &__text {
+    p {
+      margin-bottom: variables.$spacing-md;
+      color: variables.$color-text-muted;
+    }
+  }
+
+  &__stats {
+    display: grid;
+    gap: variables.$spacing-md;
+    grid-template-columns: 1fr 1fr;
+    margin-top: variables.$spacing-xl;
+  }
+
+  &__stat {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: variables.$spacing-md;
+    border-left: 3px solid variables.$color-sea;
+    background-color: variables.$color-gray-100;
+    border-radius: variables.$radius-md;
+    color: variables.$color-text;
+    gap: variables.$spacing-xs;
+
+    i {
+      color: variables.$color-sea;
+      font-size: 1.25rem;
+    }
+
+    strong {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: variables.$color-volcanic;
+    }
+
+    span {
+      font-size: 0.8rem;
+      color: variables.$color-text-muted;
+    }
+  }
+
+  &__image-wrap {
+    align-self: center;
+  }
+
+  &__figure {
+    figcaption {
+      margin-top: variables.$spacing-sm;
+      color: variables.$color-text-muted;
+      font-size: 0.85rem;
+      text-align: center;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    border-radius: variables.$radius-lg;
+    box-shadow: variables.$shadow-lg;
+    object-fit: cover;
+  }
+}
+
+// Islas
+
+.islands {
+  &__grid {
+    display: grid;
+    gap: variables.$spacing-lg;
+    grid-template-columns: 1fr;
+    margin-top: variables.$spacing-xl;
+
+    @include mixins.respond-to(sm) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include mixins.respond-to(lg) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}
+
+.island-card {
+  @include mixins.card;
+
+  display: flex;
+  flex-direction: column;
+  gap: variables.$spacing-sm;
+  padding: variables.$spacing-xl;
+  transition:
+    transform variables.$transition-base,
+    box-shadow variables.$transition-base;
+
+  &:hover {
+    box-shadow: variables.$shadow-lg;
+    transform: translateY(-4px);
+  }
+
+  &--featured {
+    border-top: 4px solid variables.$color-lava;
+    background: linear-gradient(
+      135deg,
+      functions.tint(variables.$color-lava, 92%) 0%,
+      variables.$color-surface 100%
+    );
+  }
+
+  &__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: variables.$radius-md;
+    background-color: functions.tint(variables.$color-sea, 85%);
+    color: variables.$color-sea-dark;
+    font-size: 1.25rem;
+
+    .island-card--featured & {
+      background-color: functions.tint(variables.$color-lava, 80%);
+      color: variables.$color-lava;
+    }
+  }
+
+  &__name {
+    font-family: variables.$font-family-serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: variables.$color-volcanic;
+  }
+
+  &__desc {
+    flex: 1;
+    color: variables.$color-text-muted;
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  &__tag {
+    align-self: flex-start;
+    padding: variables.$spacing-xs variables.$spacing-sm;
+    border-radius: variables.$radius-full;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+
+    &--lively {
+      background-color: functions.tint(variables.$color-sea, 80%);
+      color: variables.$color-sea-dark;
+    }
+
+    &--volcano {
+      background-color: functions.tint(variables.$color-lava, 80%);
+      color: functions.shade(variables.$color-lava, 20%);
+    }
+
+    &--nature {
+      background-color: functions.tint(#2d6a4f, 80%);
+      color: functions.shade(#2d6a4f, 10%);
+    }
+  }
+}
+
+// Experiencias
+
+.experiences {
+  &__list {
+    display: grid;
+    gap: variables.$spacing-xl;
+    grid-template-columns: 1fr;
+
+    @include mixins.respond-to(md) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}
+
+.experience {
+  display: flex;
+  gap: variables.$spacing-lg;
+  align-items: flex-start;
+
+  &__icon {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 54px;
+    height: 54px;
+    border-radius: variables.$radius-md;
+    background-color: functions.tint(variables.$color-sea, 85%);
+    color: variables.$color-sea;
+    font-size: 1.4rem;
+  }
+
+  &__title {
+    margin-bottom: variables.$spacing-sm;
+    font-family: variables.$font-family-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: variables.$color-volcanic;
+  }
+
+  &__desc {
+    color: variables.$color-text-muted;
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+}
+
+// Galeria
+
+.gallery {
+  &__grid {
+    display: grid;
+    gap: variables.$spacing-sm;
+    grid-template-columns: 1fr;
+    margin-top: variables.$spacing-xl;
+
+    @include mixins.respond-to(md) {
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: auto;
+    }
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border-radius: variables.$radius-md;
+    box-shadow: variables.$shadow-sm;
+
+    picture {
+      display: block;
+      aspect-ratio: 4 / 3;
+    }
+
+    &--wide {
+      picture {
+        aspect-ratio: 16 / 9;
+      }
+
+      @include mixins.respond-to(md) {
+        grid-column: span 2;
+      }
+    }
+
+    &--tall {
+      picture {
+        aspect-ratio: 3 / 4;
+      }
+
+      @include mixins.respond-to(md) {
+        grid-row: span 2;
+      }
+    }
+
+    &:hover .gallery__image {
+      transform: scale(1.04);
+    }
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform variables.$transition-slow;
+    vertical-align: bottom;
+  }
+
+  &__caption {
+    padding: variables.$spacing-sm;
+    background-color: rgba(variables.$color-volcanic, 0.85);
+    color: variables.$color-white;
+    font-size: 0.8rem;
+    text-align: center;
+  }
+}
+
+// Como llegar
+
+.how-to-get {
+  &__cards {
+    display: grid;
+    gap: variables.$spacing-lg;
+    grid-template-columns: 1fr;
+    margin-top: variables.$spacing-xl;
+
+    @include mixins.respond-to(sm) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include mixins.respond-to(lg) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+}
+
+.transport-card {
+  @include mixins.card;
+
+  padding: variables.$spacing-xl;
   text-align: center;
+  transition: transform variables.$transition-base;
+
+  &:hover {
+    transform: translateY(-4px);
+  }
+
+  &__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    margin: 0 auto variables.$spacing-md;
+    border-radius: variables.$radius-full;
+    background-color: functions.tint(variables.$color-sea, 85%);
+    color: variables.$color-sea;
+    font-size: 1.5rem;
+  }
+
+  &__title {
+    margin-bottom: variables.$spacing-sm;
+    font-family: variables.$font-family-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: variables.$color-volcanic;
+  }
+
+  p {
+    color: variables.$color-text-muted;
+    font-size: 0.875rem;
+    line-height: 1.6;
+  }
+}
+
+// Footer
+
+.site-footer {
+  padding: variables.$spacing-2xl variables.$spacing-lg;
+  background-color: variables.$color-volcanic;
+  color: rgba(variables.$color-white, 0.6);
+  text-align: center;
+
+  a {
+    color: variables.$color-sea-light;
+
+    &:hover {
+      color: variables.$color-white;
+    }
+  }
+
+  &__content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  &__brand {
+    margin-bottom: variables.$spacing-md;
+    font-family: variables.$font-family-serif;
+    font-size: 1.5rem;
+    color: variables.$color-white;
+  }
+
+  &__copy {
+    font-size: 0.85rem;
+  }
 }

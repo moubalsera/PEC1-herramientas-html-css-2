@@ -1,0 +1,145 @@
+@use "variables";
+
+// Reset y base
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: variables.$font-size-base;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: variables.$font-family-sans-serif;
+  font-size: 1rem;
+  line-height: variables.$line-height-base;
+  background-color: variables.$color-bg;
+  color: variables.$color-text;
+}
+
+img,
+picture {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: variables.$color-primary;
+  text-decoration: none;
+
+  &:hover,
+  &:focus {
+    text-decoration: underline;
+  }
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+  line-height: 1.2;
+}
+
+p {
+  margin-top: 0;
+}
+
+figure {
+  margin: 0;
+}
+
+// Contenedor
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: variables.$spacing-lg;
+  padding-left: variables.$spacing-lg;
+}
+
+// Secciones compartidas
+.section {
+  padding-top: variables.$spacing-3xl;
+  padding-bottom: variables.$spacing-3xl;
+
+  &--alt {
+    background-color: variables.$color-gray-100;
+  }
+}
+
+.section__tag {
+  display: inline-block;
+  margin-bottom: variables.$spacing-sm;
+  padding: variables.$spacing-xs variables.$spacing-md;
+  border-radius: variables.$radius-full;
+  background-color: variables.$color-sea-light;
+  color: variables.$color-sea-dark;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.section__title {
+  margin-bottom: variables.$spacing-lg;
+  font-family: variables.$font-family-serif;
+  font-size: 1.75rem;
+  color: variables.$color-volcanic;
+}
+
+.section__lead {
+  max-width: 680px;
+  margin-bottom: variables.$spacing-2xl;
+  color: variables.$color-text-muted;
+  font-size: 1.1rem;
+}
+
+// Botones
+.btn {
+  display: inline-flex;
+  gap: variables.$spacing-sm;
+  align-items: center;
+  padding: variables.$spacing-md variables.$spacing-xl;
+  border: none;
+  border-radius: variables.$radius-full;
+  cursor: pointer;
+  font-family: variables.$font-family-sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  transition:
+    background-color variables.$transition-base,
+    transform variables.$transition-base;
+  text-decoration: none;
+
+  &:hover,
+  &:focus {
+    text-decoration: none;
+    transform: translateY(-2px);
+  }
+
+  &--primary {
+    background-color: variables.$color-primary;
+    color: variables.$color-white;
+
+    &:hover,
+    &:focus {
+      background-color: variables.$color-primary-dark;
+      color: variables.$color-white;
+    }
+  }
+}

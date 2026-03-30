@@ -1,0 +1,16 @@
+{
+  "extends": ["stylelint-config-recommended-scss"],
+  "rules": {
+    "selector-class-pattern": "^[a-z][a-z0-9]*(-[a-z0-9]+)*(__[a-z0-9]+(-[a-z0-9]+)*)?(--[a-z0-9]+(-[a-z0-9]+)*)?$",
+    "color-named": "never",
+    "shorthand-property-no-redundant-values": true,
+    "declaration-block-no-duplicate-properties": true,
+    "no-duplicate-selectors": true,
+    "selector-max-id": 0,
+    "declaration-no-important": true,
+    "comment-no-empty": true,
+    "block-no-empty": true,
+    "unit-no-unknown": true,
+    "property-no-unknown": true
+  }
+}

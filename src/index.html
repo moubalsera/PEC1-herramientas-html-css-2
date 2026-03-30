@@ -1,34 +1,568 @@
 <!doctype html>
 
-<html>
+<html lang="es">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Descubre las Islas Eolias, el archipiélago volcánico siciliano declarado Patrimonio de la Humanidad por la UNESCO."
+    />
     <link rel="stylesheet" type="text/css" href="./assets/styles/main.scss" />
     <!-- do not remove this line! -->
-    <title>UOC Boilerplate</title>
+    <title>Islas Eolias — Un paraíso volcánico en el Mediterráneo</title>
   </head>
   <body>
-    <div class="uoc-container">
-      <picture>
-        <source
-          srcset="./assets/images/logo.png?as=webp&width=350"
-          type="image/webp"
-        />
-        <img
-          src="./assets/images/logo.png?width=350"
-          alt="Universitat Oberta de Catalunya"
-          class="uoc-logo"
-        />
-      </picture>
-      <h1 class="uoc-title">Hello, UOC!</h1>
-      <p>
-        This is a starter template for the Advanced HTML and CSS Tools courses
-        from the Master's Program in Multimedia Applications and the Master's
-        Program in Web App and Website Development at the Universitat Oberta de
-        Catalunya.
-      </p>
-    </div>
+    <!-- NAV -->
+    <header class="site-header" role="banner">
+      <nav class="site-nav" aria-label="Navegación principal">
+        <div class="site-nav__brand">
+          <i class="fas fa-volcano" aria-hidden="true"></i>
+          <span>Islas Eolias</span>
+        </div>
+        <button
+          class="site-nav__toggle"
+          aria-expanded="false"
+          aria-controls="nav-menu"
+          aria-label="Abrir menú"
+        >
+          <i class="fas fa-bars" aria-hidden="true"></i>
+        </button>
+        <ul class="site-nav__menu" id="nav-menu" role="list">
+          <li><a class="site-nav__link" href="#intro">Inicio</a></li>
+          <li><a class="site-nav__link" href="#islas">Las Islas</a></li>
+          <li>
+            <a class="site-nav__link" href="#experiencias">Experiencias</a>
+          </li>
+          <li><a class="site-nav__link" href="#galeria">Galería</a></li>
+          <li><a class="site-nav__link" href="#como-llegar">Cómo llegar</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <!-- HERO -->
+      <section class="hero" id="intro" aria-labelledby="hero-title">
+        <div class="hero__overlay"></div>
+        <div class="hero__content">
+          <p class="hero__eyebrow">
+            <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+            Sicilia, Italia · Patrimonio Mundial de la UNESCO
+          </p>
+          <h1 class="hero__title" id="hero-title">Islas Eolias</h1>
+          <p class="hero__subtitle">
+            Un archipiélago volcánico de fuego, mar y cielo donde el tiempo se
+            detiene.
+          </p>
+          <a class="hero__cta btn btn--primary" href="#islas">
+            Descúbrelas
+            <i class="fas fa-arrow-down" aria-hidden="true"></i>
+          </a>
+        </div>
+        <div class="hero__scroll-hint" aria-hidden="true">
+          <i class="fas fa-chevron-down"></i>
+        </div>
+      </section>
+
+      <!-- INTRO -->
+      <section
+        class="intro section"
+        id="intro-text"
+        aria-labelledby="intro-title"
+      >
+        <div class="container">
+          <div class="intro__grid">
+            <div class="intro__text">
+              <span class="section__tag">El destino</span>
+              <h2 class="section__title" id="intro-title">
+                Donde la tierra respira fuego
+              </h2>
+              <p>
+                Las <strong>Islas Eolias</strong> (en italiano,
+                <em>Isole Eolie</em>) son un archipiélago volcánico situado en
+                el mar Tirreno, al norte de Sicilia. Declaradas
+                <strong>Patrimonio de la Humanidad por la UNESCO en 2000</strong
+                >, las siete islas que lo forman ofrecen paisajes únicos, aguas
+                cristalinas y una historia milenaria.
+              </p>
+              <p>
+                Su nombre proviene de Eolo, el dios griego del viento, y durante
+                siglos estas islas fueron cruce de civilizaciones: griegos,
+                romanos, normandos y árabes dejaron su huella en su cultura y
+                arquitectura.
+              </p>
+              <ul class="intro__stats" role="list">
+                <li class="intro__stat">
+                  <i class="fas fa-island-tropical" aria-hidden="true"></i>
+                  <strong>7</strong>
+                  <span>islas</span>
+                </li>
+                <li class="intro__stat">
+                  <i class="fas fa-water" aria-hidden="true"></i>
+                  <strong>115 km²</strong>
+                  <span>superficie total</span>
+                </li>
+                <li class="intro__stat">
+                  <i class="fas fa-users" aria-hidden="true"></i>
+                  <strong>~14.000</strong>
+                  <span>habitantes</span>
+                </li>
+                <li class="intro__stat">
+                  <i class="fas fa-award" aria-hidden="true"></i>
+                  <strong>2000</strong>
+                  <span>UNESCO</span>
+                </li>
+              </ul>
+            </div>
+            <div class="intro__image-wrap">
+              <figure class="intro__figure">
+                <picture>
+                  <source
+                    srcset="
+                      ./assets/images/stromboli-aerial-view.jpg?as=webp&width=600
+                    "
+                    type="image/webp"
+                  />
+                  <img
+                    src="./assets/images/stromboli-aerial-view.jpg?width=600"
+                    alt="Vista aérea del volcán Stromboli con el mar Tirreno al fondo"
+                    class="intro__image"
+                    loading="lazy"
+                    width="600"
+                    height="450"
+                  />
+                </picture>
+                <figcaption>
+                  Stromboli, el volcán activo más famoso del archipiélago.
+                </figcaption>
+              </figure>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ISLAS -->
+      <section
+        class="islands section section--alt"
+        id="islas"
+        aria-labelledby="islands-title"
+      >
+        <div class="container">
+          <span class="section__tag">El archipiélago</span>
+          <h2 class="section__title" id="islands-title">Las siete islas</h2>
+          <p class="section__lead">
+            Cada isla tiene una personalidad propia. Desde la animada Lipari
+            hasta la solitaria Alicudi, hay un rincón para cada viajero.
+          </p>
+          <div class="islands__grid">
+            <article class="island-card">
+              <div class="island-card__icon" aria-hidden="true">
+                <i class="fas fa-city"></i>
+              </div>
+              <h3 class="island-card__name">Lipari</h3>
+              <p class="island-card__desc">
+                La isla más grande y poblada, con un animado puerto, el
+                imponente castillo normando y obsidiana en sus acantilados.
+              </p>
+              <span class="island-card__tag island-card__tag--lively"
+                >Animada</span
+              >
+            </article>
+
+            <article class="island-card island-card--featured">
+              <div class="island-card__icon" aria-hidden="true">
+                <i class="fas fa-fire"></i>
+              </div>
+              <h3 class="island-card__name">Stromboli</h3>
+              <p class="island-card__desc">
+                El "faro del Mediterráneo": un volcán activo que erupciona casi
+                constantemente, creando un espectáculo nocturno incomparable.
+              </p>
+              <span class="island-card__tag island-card__tag--volcano"
+                >Volcánica</span
+              >
+            </article>
+
+            <article class="island-card">
+              <div class="island-card__icon" aria-hidden="true">
+                <i class="fas fa-spa"></i>
+              </div>
+              <h3 class="island-card__name">Vulcano</h3>
+              <p class="island-card__desc">
+                Famosa por sus fumarolas, el lodo termal y las aguas
+                burbujeantes ideales para el bienestar natural.
+              </p>
+              <span class="island-card__tag island-card__tag--volcano"
+                >Geotérmica</span
+              >
+            </article>
+
+            <article class="island-card">
+              <div class="island-card__icon" aria-hidden="true">
+                <i class="fas fa-sun"></i>
+              </div>
+              <h3 class="island-card__name">Salina</h3>
+              <p class="island-card__desc">
+                La más verde y fértil, famosa por su producción de alcaparras y
+                por ser el escenario del film <em>Il Postino</em>.
+              </p>
+              <span class="island-card__tag island-card__tag--nature"
+                >Natural</span
+              >
+            </article>
+
+            <article class="island-card">
+              <div class="island-card__icon" aria-hidden="true">
+                <i class="fas fa-anchor"></i>
+              </div>
+              <h3 class="island-card__name">Panarea</h3>
+              <p class="island-card__desc">
+                La más pequeña y exclusiva, con casas blancas encaladas, calas
+                secretas y una vibrante vida nocturna en verano.
+              </p>
+              <span class="island-card__tag island-card__tag--lively"
+                >Exclusiva</span
+              >
+            </article>
+
+            <article class="island-card">
+              <div class="island-card__icon" aria-hidden="true">
+                <i class="fas fa-mountain"></i>
+              </div>
+              <h3 class="island-card__name">Filicudi</h3>
+              <p class="island-card__desc">
+                Agreste y auténtica, con impresionantes formaciones de basalto,
+                cuevas marinas y una completa ausencia de turismo masivo.
+              </p>
+              <span class="island-card__tag island-card__tag--nature"
+                >Salvaje</span
+              >
+            </article>
+
+            <article class="island-card">
+              <div class="island-card__icon" aria-hidden="true">
+                <i class="fas fa-tree"></i>
+              </div>
+              <h3 class="island-card__name">Alicudi</h3>
+              <p class="island-card__desc">
+                La isla más alejada y la menos visitada: sin coches, sin ruido.
+                Solo escaleras, burros y una paz absoluta.
+              </p>
+              <span class="island-card__tag island-card__tag--nature"
+                >Remota</span
+              >
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- EXPERIENCIAS -->
+      <section
+        class="experiences section"
+        id="experiencias"
+        aria-labelledby="exp-title"
+      >
+        <div class="container">
+          <span class="section__tag">Qué hacer</span>
+          <h2 class="section__title" id="exp-title">
+            Experiencias imprescindibles
+          </h2>
+          <div class="experiences__list">
+            <div class="experience">
+              <div class="experience__icon" aria-hidden="true">
+                <i class="fas fa-hiking"></i>
+              </div>
+              <div class="experience__body">
+                <h3 class="experience__title">
+                  Ascender al Stromboli de noche
+                </h3>
+                <p class="experience__desc">
+                  La subida nocturna al cráter (918 m) con guía oficial es una
+                  de las experiencias más impresionantes que ofrece el
+                  Mediterráneo. La lava incandescente ilumina la oscuridad.
+                </p>
+              </div>
+            </div>
+
+            <div class="experience">
+              <div class="experience__icon" aria-hidden="true">
+                <i class="fas fa-water"></i>
+              </div>
+              <div class="experience__body">
+                <h3 class="experience__title">
+                  Buceo y snorkel en aguas cristalinas
+                </h3>
+                <p class="experience__desc">
+                  Las aguas alrededor de las islas tienen una visibilidad
+                  excepcional. Formaciones volcánicas submarinas, grutas y una
+                  rica fauna marina esperan bajo la superficie.
+                </p>
+              </div>
+            </div>
+
+            <div class="experience">
+              <div class="experience__icon" aria-hidden="true">
+                <i class="fas fa-hot-tub"></i>
+              </div>
+              <div class="experience__body">
+                <h3 class="experience__title">Baños de lodo en Vulcano</h3>
+                <p class="experience__desc">
+                  Los fanghi di Vulcano, pozas naturales de barro sulfuroso, son
+                  un tratamiento termal único en el mundo. Los visitantes se
+                  cubren de barro gris y luego nadan en agua burbujeante.
+                </p>
+              </div>
+            </div>
+
+            <div class="experience">
+              <div class="experience__icon" aria-hidden="true">
+                <i class="fas fa-ship"></i>
+              </div>
+              <div class="experience__body">
+                <h3 class="experience__title">Ruta en barco al atardecer</h3>
+                <p class="experience__desc">
+                  Navegar entre islas cuando el sol se hunde en el Tirreno es
+                  pura magia. Muchos barcos ofrecen paradas en calas secretas
+                  inaccesibles desde tierra.
+                </p>
+              </div>
+            </div>
+
+            <div class="experience">
+              <div class="experience__icon" aria-hidden="true">
+                <i class="fas fa-utensils"></i>
+              </div>
+              <div class="experience__body">
+                <h3 class="experience__title">Gastronomía eoliana</h3>
+                <p class="experience__desc">
+                  Las alcaparras de Salina, el pescado espada a la eoliana, los
+                  arancini y el Malvasia, un vino dulce de uva pasa, forman una
+                  gastronomía íntimamente ligada al territorio.
+                </p>
+              </div>
+            </div>
+
+            <div class="experience">
+              <div class="experience__icon" aria-hidden="true">
+                <i class="fas fa-camera"></i>
+              </div>
+              <div class="experience__body">
+                <h3 class="experience__title">Fotografía volcánica</h3>
+                <p class="experience__desc">
+                  Las erupciones del Stromboli y las fumarolas de Vulcano
+                  ofrecen posibilidades fotográficas únicas. La luz del amanecer
+                  sobre los cráteres es espectacular.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- GALERÍA -->
+      <section
+        class="gallery section section--alt"
+        id="galeria"
+        aria-labelledby="gallery-title"
+      >
+        <div class="container">
+          <span class="section__tag">Imágenes</span>
+          <h2 class="section__title" id="gallery-title">Galería</h2>
+          <div class="gallery__grid" role="list">
+            <figure class="gallery__item" role="listitem">
+              <picture>
+                <source
+                  srcset="
+                    ./assets/images/stromboli-night-eruption.jpg?as=webp&width=480
+                  "
+                  type="image/webp"
+                />
+                <img
+                  src="./assets/images/stromboli-night-eruption.jpg?width=480"
+                  alt="Erupción nocturna del volcán Stromboli con lava roja"
+                  class="gallery__image"
+                  loading="lazy"
+                  width="480"
+                  height="320"
+                />
+              </picture>
+              <figcaption class="gallery__caption">
+                Stromboli en erupción nocturna
+              </figcaption>
+            </figure>
+
+            <figure class="gallery__item gallery__item--wide" role="listitem">
+              <picture>
+                <source
+                  srcset="
+                    ./assets/images/lipari-harbor-boats.jpg?as=webp&width=960
+                  "
+                  type="image/webp"
+                />
+                <img
+                  src="./assets/images/lipari-harbor-boats.jpg?width=960"
+                  alt="Puerto de Lipari con barcos de pesca y casas coloridas"
+                  class="gallery__image"
+                  loading="lazy"
+                  width="960"
+                  height="320"
+                />
+              </picture>
+              <figcaption class="gallery__caption">
+                El puerto de Lipari
+              </figcaption>
+            </figure>
+
+            <figure class="gallery__item" role="listitem">
+              <picture>
+                <source
+                  srcset="
+                    ./assets/images/vulcano-thermal-mud-baths.jpg?as=webp&width=480
+                  "
+                  type="image/webp"
+                />
+                <img
+                  src="./assets/images/vulcano-thermal-mud-baths.jpg?width=480"
+                  alt="Pozas de barro termal en la isla de Vulcano con turistas"
+                  class="gallery__image"
+                  loading="lazy"
+                  width="480"
+                  height="320"
+                />
+              </picture>
+              <figcaption class="gallery__caption">
+                Los fanghi de Vulcano
+              </figcaption>
+            </figure>
+
+            <figure class="gallery__item" role="listitem">
+              <picture>
+                <source
+                  srcset="
+                    ./assets/images/panarea-turquoise-cliffs.jpg?as=webp&width=480
+                  "
+                  type="image/webp"
+                />
+                <img
+                  src="./assets/images/panarea-turquoise-cliffs.jpg?width=480"
+                  alt="Aguas turquesas y acantilados negros de la isla de Panarea"
+                  class="gallery__image"
+                  loading="lazy"
+                  width="480"
+                  height="320"
+                />
+              </picture>
+              <figcaption class="gallery__caption">Aguas de Panarea</figcaption>
+            </figure>
+
+            <figure class="gallery__item gallery__item--tall" role="listitem">
+              <picture>
+                <source
+                  srcset="
+                    ./assets/images/salina-vineyards-sunset.jpg?as=webp&width=480
+                  "
+                  type="image/webp"
+                />
+                <img
+                  src="./assets/images/salina-vineyards-sunset.jpg?width=480"
+                  alt="Terrazas de viñedos de Malvasia en la isla de Salina al atardecer"
+                  class="gallery__image"
+                  loading="lazy"
+                  width="480"
+                  height="640"
+                />
+              </picture>
+              <figcaption class="gallery__caption">
+                Viñedos de Salina
+              </figcaption>
+            </figure>
+
+            <figure class="gallery__item" role="listitem">
+              <picture>
+                <source
+                  srcset="
+                    ./assets/images/panarea-white-village.jpg?as=webp&width=480
+                  "
+                  type="image/webp"
+                />
+                <img
+                  src="./assets/images/panarea-white-village.jpg?width=480"
+                  alt="Casas blancas de Panarea con vistas al mar azul"
+                  class="gallery__image"
+                  loading="lazy"
+                  width="480"
+                  height="320"
+                />
+              </picture>
+              <figcaption class="gallery__caption">
+                Las casas blancas de Panarea
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- CÓMO LLEGAR -->
+      <section
+        class="how-to-get section"
+        id="como-llegar"
+        aria-labelledby="how-title"
+      >
+        <div class="container">
+          <span class="section__tag">Información práctica</span>
+          <h2 class="section__title" id="how-title">Cómo llegar</h2>
+          <p class="section__lead">
+            Las Islas Eolias se alcanzan principalmente desde Milazzo (Sicilia),
+            con ferris a todas las islas.
+          </p>
+          <div class="how-to-get__cards">
+            <div class="transport-card">
+              <div class="transport-card__icon" aria-hidden="true">
+                <i class="fas fa-plane"></i>
+              </div>
+              <h3 class="transport-card__title">En avión</h3>
+              <p>
+                Vuela a Catania o Palermo (Sicilia). Desde Barcelona hay vuelos
+                directos de bajo coste. Desde el aeropuerto toma un tren o bus
+                hasta Milazzo.
+              </p>
+            </div>
+            <div class="transport-card">
+              <div class="transport-card__icon" aria-hidden="true">
+                <i class="fas fa-ship"></i>
+              </div>
+              <h3 class="transport-card__title">En ferry</h3>
+              <p>
+                Desde Milazzo salen ferris operados por Liberty Lines y Carmar.
+                El trayecto a Lipari dura unos 55 minutos en ferry.
+              </p>
+            </div>
+            <div class="transport-card">
+              <div class="transport-card__icon" aria-hidden="true">
+                <i class="fas fa-calendar-alt"></i>
+              </div>
+              <h3 class="transport-card__title">Mejor época</h3>
+              <p>
+                De mayo a octubre, con pico en julio-agosto. La temporada baja
+                (mayo-junio y septiembre) ofrece menos turistas, precios más
+                bajos y buen tiempo.
+              </p>
+            </div>
+            <div class="transport-card">
+              <div class="transport-card__icon" aria-hidden="true">
+                <i class="fas fa-euro-sign"></i>
+              </div>
+              <h3 class="transport-card__title">Presupuesto orientativo</h3>
+              <p>
+                Bajo: ~80€/día. Medio: ~150€/día. Alto: +250€/día. Los precios
+                suben significativamente en julio y agosto.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
     <include src="./views/footer.html"></include>
     <script type="module" src="./assets/scripts/main.js"></script>
     <!-- do not remove this line! -->

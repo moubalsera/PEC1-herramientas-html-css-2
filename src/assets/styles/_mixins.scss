@@ -1,0 +1,29 @@
+@use "variables";
+
+// Breakpoints
+@mixin respond-to($bp) {
+  @if $bp == sm {
+    @media (min-width: variables.$bp-sm) {
+      @content;
+    }
+  } @else if $bp == md {
+    @media (min-width: variables.$bp-md) {
+      @content;
+    }
+  } @else if $bp == lg {
+    @media (min-width: variables.$bp-lg) {
+      @content;
+    }
+  } @else if $bp == xl {
+    @media (min-width: variables.$bp-xl) {
+      @content;
+    }
+  }
+}
+
+// Tarjeta base
+@mixin card {
+  background-color: variables.$color-surface;
+  border-radius: variables.$radius-lg;
+  box-shadow: variables.$shadow-md;
+}

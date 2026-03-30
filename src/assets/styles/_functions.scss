@@ -1,0 +1,18 @@
+@use "sass:color";
+@use "sass:math";
+
+// Funciones Sass
+// Convierte px a rem (base 16)
+@function rem($px) {
+  @return #{math.div($px, 16)}rem;
+}
+
+// Mezcla con blanco
+@function tint($color, $percentage) {
+  @return color.mix(white, $color, $percentage);
+}
+
+// Mezcla con negro
+@function shade($color, $percentage) {
+  @return color.mix(black, $color, $percentage);
+}
